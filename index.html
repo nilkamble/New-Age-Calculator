@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+
+    
+        body{
+            background-color: aquamarine;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        div{
+            background-color: antiquewhite;
+             border: 2px solid;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+  <div>
+    <input type="date">
+
+    <p>You're__years__months_days old.</p>
+  </div>
+
+    <script>
+        const dateInput = document.querySelector("input");
+        const pEelement = document.querySelector('p');
+
+        dateInput.addEventListener("change",()=>{
+            const birthDate = new Date(dateInput.value);
+            const currenDate = new Date();
+            const newDate = new Date(currenDate-birthDate);
+
+            const years = newDate.getFullYear() -1970;
+            const months = newDate.getMonth();
+            const days = newDate.getDate()-1;
+
+            pEelement.innerText =`You're_${years}_years ${months} months_${days}_days old.`
+ })
+    </script>
+</body>
+</html>
